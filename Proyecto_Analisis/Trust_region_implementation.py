@@ -105,12 +105,12 @@ def mRC2( f, x0, itmax,Delta_max=1.5):
     return x,msg
 
 
-f= lambda x: np.array((x[0]+2*x[1]-7)**2+(2*x[0]+x[1]-5)**2)
-g= lambda x: np.array((1+((x[0]+x[1]+1)**2)*(19-14*x[0]+3*(x[0]**2)-14*x[1]+6*x[0]*x[1]+3*(x[1]**2)))*(30+((2*x[0]-3*x[1])**2)*(18-32*x[0]+(12*x[0]**2)+48*x[1]-36*x[0]*x[1]+27*(x[1]**2))))
-h=lambda x:np.array(0.26*((x[0]**2)+(x[1]**2))-0.48*x[0]*x[1])
-w= lambda x:np.array(-np.cos(x[0])*np.cos(x[1])*np.exp(-((x[0]-np.pi)**2)-(x[1]-np.pi)**2))
-t=lambda x:np.array(2*x[0]**2-1.05*x[0]**4+(1/6)*x[0]**6+x[0]*x[1]+x[1]**2)
-x_0=np.array([1,2])
+#f= lambda x: np.array((x[0]+2*x[1]-7)**2+(2*x[0]+x[1]-5)**2)
+#g= lambda x: np.array((1+((x[0]+x[1]+1)**2)*(19-14*x[0]+3*(x[0]**2)-14*x[1]+6*x[0]*x[1]+3*(x[1]**2)))*(30+((2*x[0]-3*x[1])**2)*(18-32*x[0]+(12*x[0]**2)+48*x[1]-36*x[0]*x[1]+27*(x[1]**2))))
+#h=lambda x:np.array(0.26*((x[0]**2)+(x[1]**2))-0.48*x[0]*x[1])
+#w= lambda x:np.array(-np.cos(x[0])*np.cos(x[1])*np.exp(-((x[0]-np.pi)**2)-(x[1]-np.pi)**2))
+#t=lambda x:np.array(2*x[0]**2-1.05*x[0]**4+(1/6)*x[0]**6+x[0]*x[1]+x[1]**2)
+#x_0=np.array([1,2])
 #print(w([np.pi,np.pi]))
 #pC1=pCauchy(apHess(f,x_0),apGrad(f,x_0),2)
 #pC2=pDogLeg(apHess(f,x_0),apGrad(f,x_0),2)
@@ -122,15 +122,15 @@ x_0=np.array([1,2])
 #print(m_k(apGrad(f,x_0),apGrad(f,x_0),apHess(f,x_0),x_0))
 #print(f(x_0))
 
-print(mRC1( f, x_0, itmax,1.5 )[0])
-print(mRC2( f, x_0, itmax,1.5 ))
-xz,_=mRC1( f, x_0, itmax,1.5 )
-if np.isclose(apGrad(f,xz),np.zeros(2), rtol=tol, atol=tol, equal_nan=False).all()==True:
-    Bk_1=apHess(f,xz)
-    if LA.eigh(Bk_1,eigvals_only=True).min()>0:
-        print('Minimum was found')
-else:
-     print('Minimum was not found')
+#print(mRC1( f, x_0, itmax,1.5 )[0])
+#print(mRC2( f, x_0, itmax,1.5 ))
+#xz,_=mRC1( f, x_0, itmax,1.5 )
+#if np.isclose(apGrad(f,xz),np.zeros(2), rtol=tol, atol=tol, equal_nan=False).all()==True:
+#    Bk_1=apHess(f,xz)
+#    if LA.eigh(Bk_1,eigvals_only=True).min()>0:
+#        print('Minimum was found')
+#else:
+#     print('Minimum was not found')
      
 #print(np.eye(2))
 #print(apHess(w,x_0))
